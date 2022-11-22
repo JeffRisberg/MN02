@@ -5,7 +5,8 @@ build/
 target/
 out/
 .micronaut/
-.idea
+.idea/workspace.xml
+.idea/sonarlint
 *.iml
 *.ipr
 *.iws
