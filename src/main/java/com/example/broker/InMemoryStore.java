@@ -30,6 +30,11 @@ public class InMemoryStore {
 
   @PostConstruct
   public void initialize() {
+    initializeWith(10);
+  }
+
+  public void initializeWith(int numberOfEntries) {
+    symbols.clear();
     IntStream.range(0, 10).forEach(i ->
         addNewSymbol()
     );

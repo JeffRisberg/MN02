@@ -1,23 +1,27 @@
 package com.example.broker;
 
 import com.example.broker.model.Symbol;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller("/symbols")
 public class SymbolController {
 
-  private final InMemoryStore store;
+  private final InMemoryStore inMemoryStore;
 
-  public SymbolController(final InMemoryStore store) {
-    this.store = store;
+  public SymbolController(final InMemoryStore inMemoryStore) {
+    this.inMemoryStore = inMemoryStore;
   }
 
   @Get()
   public List<Symbol> getAll() {
-    var symbols = store.getSymbols().values();
+    var symbols = inMemoryStore.getSymbols().values();
     return new ArrayList(symbols);
+  }
+
+  @Get("{value}")
+  public Symbol getSymbolbyValue(@PathVariable String value) {
+    return inMemoryStore.getSymbols().get(value);
   }
 }
