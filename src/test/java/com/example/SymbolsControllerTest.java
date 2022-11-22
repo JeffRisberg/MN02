@@ -57,4 +57,11 @@ class SymbolsControllerTest {
     assertEquals(HttpStatus.OK, response.getStatus());
     assertEquals(testSymbol, response.getBody().get());
   }
+
+  @Test
+  void symbolsEndpointReturnsFilteredList() {
+    var response = client.toBlocking().exchange("/filter?max=3", JsonNode.class);
+    assertEquals(HttpStatus.OK, response.getStatus());
+    assertEquals(3, response.getBody().get().size());
+  }
 }
