@@ -38,14 +38,14 @@ class SymbolsControllerTest {
 
   @BeforeEach
   void setup() {
-    inMemoryStore.initializeWith(10);
+    inMemoryStore.initializeWith(12);
   }
 
   @Test
   void symbolsEndpointReturnsListOfSymbols() {
     var response = client.toBlocking().exchange("/", JsonNode.class);
     assertEquals(HttpStatus.OK, response.getStatus());
-    assertEquals(10, response.getBody().get().size());
+    assertEquals(12, response.getBody().get().size());
   }
 
   @Test

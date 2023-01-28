@@ -35,7 +35,7 @@ public class InMemoryStore {
 
   public void initializeWith(int numberOfEntries) {
     symbols.clear();
-    IntStream.range(0, 10).forEach(i ->
+    IntStream.range(0, numberOfEntries).forEach(i ->
         addNewSymbol()
     );
   }
