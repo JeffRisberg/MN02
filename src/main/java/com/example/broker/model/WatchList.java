@@ -10,6 +10,9 @@ public class WatchList {
 
   private List<Symbol> symbols = new ArrayList<>();
 
+  public WatchList() {
+  }
+
   public WatchList(List<Symbol> symbols) {
     this.symbols = symbols;
   }
