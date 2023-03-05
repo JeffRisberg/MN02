@@ -1,7 +1,5 @@
 package com.example.broker;
 
-
-import com.example.InMemoryAccountStore;
 import com.example.broker.model.WatchList;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;

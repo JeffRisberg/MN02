@@ -1,5 +1,4 @@
-package com.example;
-
+package com.example.broker;
 
 import com.example.broker.model.WatchList;
 import jakarta.inject.Singleton;
