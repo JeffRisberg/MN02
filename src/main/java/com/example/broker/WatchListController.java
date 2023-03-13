@@ -13,7 +13,7 @@ public class WatchListController {
 
   private static final Logger LOG = LoggerFactory.getLogger(WatchListController.class);
 
-  static final UUID ACCOUNT_ID = UUID.randomUUID();
+  public static final UUID ACCOUNT_ID = UUID.randomUUID();
 
   private final InMemoryAccountStore store;
 
