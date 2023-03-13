@@ -1,23 +1,28 @@
-package com.example.broker;
+package com.example.broker.account;
 
+import com.example.broker.InMemoryAccountStore;
 import com.example.broker.model.WatchList;
+import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
+//import io.micronaut.security.annotation.Secured;
+//import io.micronaut.security.rules.SecurityRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.UUID;
 
+//@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller("/account/watchlist")
 public class WatchListController {
 
   private static final Logger LOG = LoggerFactory.getLogger(WatchListController.class);
 
-  public static final UUID ACCOUNT_ID = UUID.randomUUID();
+  static final UUID ACCOUNT_ID = UUID.randomUUID();
 
   private final InMemoryAccountStore store;
 
-  public WatchListController(InMemoryAccountStore store) {
+  public WatchListController(final InMemoryAccountStore store) {
     this.store = store;
   }
 
@@ -40,7 +45,8 @@ public class WatchListController {
     consumes = MediaType.APPLICATION_JSON,
     produces = MediaType.APPLICATION_JSON
   )
-  public void delete(@PathVariable UUID accountId) {
+  public HttpResponse<Void> delete(@PathVariable UUID accountId) {
     store.deleteWatchList(accountId);
+    return HttpResponse.noContent();
   }
 }

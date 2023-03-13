@@ -1,7 +1,6 @@
 package com.example.broker.account;
 
 import com.example.broker.InMemoryAccountStore;
-import com.example.broker.WatchListController;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
