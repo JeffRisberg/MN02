@@ -1,8 +1,8 @@
 package com.example.broker;
 
 import com.example.broker.model.Symbol;
-import com.github.javafaker.Faker;
 import jakarta.inject.Singleton;
+import net.datafaker.Faker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
