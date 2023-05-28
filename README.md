@@ -16,3 +16,11 @@ Micronaut/Netty project using Gradle.
 - [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
 
 
+## test this as
+
+./gradlew test
+
+## run this as
+
+./gradlew run
+
