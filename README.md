@@ -2,11 +2,11 @@
 
 Micronaut/Netty project using Gradle.
 
-## Micronaut 3.9.4 Documentation
+## Micronaut 3.10.1 Documentation
 
-- [User Guide](https://docs.micronaut.io/3.9.4/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.9.4/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.9.4/guide/configurationreference.html)
+- [User Guide](https://docs.micronaut.io/3.10.1/guide/index.html)
+- [API Reference](https://docs.micronaut.io/3.10.1/api/index.html)
+- [Configuration Reference](https://docs.micronaut.io/3.10.1/guide/configurationreference.html)
 - [Micronaut Guides](https://guides.micronaut.io/index.html)
 ---
 
