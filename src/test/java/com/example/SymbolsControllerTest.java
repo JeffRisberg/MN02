@@ -1,8 +1,5 @@
 package com.example;
 
-import static io.micronaut.http.HttpRequest.GET;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.example.broker.InMemoryStore;
 import com.example.broker.model.Symbol;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -12,9 +9,13 @@ import io.micronaut.http.client.annotation.Client;
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MicronautTest
 class SymbolsControllerTest {
@@ -38,14 +39,14 @@ class SymbolsControllerTest {
 
   @BeforeEach
   void setup() {
-    inMemoryStore.initializeWith(10);
+    inMemoryStore.initializeWith(12);
   }
 
   @Test
   void symbolsEndpointReturnsListOfSymbols() {
     var response = client.toBlocking().exchange("/", JsonNode.class);
     assertEquals(HttpStatus.OK, response.getStatus());
-    assertEquals(10, response.getBody().get().size());
+    assertEquals(12, response.getBody().get().size());
   }
 
   @Test
@@ -53,7 +54,7 @@ class SymbolsControllerTest {
     var testSymbol = new Symbol("TEST");
     inMemoryStore.getSymbols().put(testSymbol.value(), testSymbol);
 
-    var response = client.toBlocking().exchange("/"+ testSymbol.value(), Symbol.class);
+    var response = client.toBlocking().exchange("/" + testSymbol.value(), Symbol.class);
     assertEquals(HttpStatus.OK, response.getStatus());
     assertEquals(testSymbol, response.getBody().get());
   }

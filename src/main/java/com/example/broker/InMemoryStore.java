@@ -1,23 +1,15 @@
 package com.example.broker;
 
-import com.example.broker.model.Quote;
 import com.example.broker.model.Symbol;
-import com.github.javafaker.Faker;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.*;
-
 import jakarta.inject.Singleton;
-
-import io.micronaut.context.event.StartupEvent;
-import io.micronaut.runtime.event.annotation.EventListener;
-import javax.annotation.PostConstruct;
+import net.datafaker.Faker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.annotation.PostConstruct;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.IntStream;
 
 @Singleton
 public class InMemoryStore {
@@ -35,8 +27,8 @@ public class InMemoryStore {
 
   public void initializeWith(int numberOfEntries) {
     symbols.clear();
-    IntStream.range(0, 10).forEach(i ->
-        addNewSymbol()
+    IntStream.range(0, numberOfEntries).forEach(i ->
+      addNewSymbol()
     );
   }
 
