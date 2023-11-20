@@ -1,6 +1,8 @@
 plugins {
   id("com.github.johnrengelman.shadow") version "7.1.2"
-  id("io.micronaut.application") version "3.7.10"
+  id("io.micronaut.application") version "4.2.0"
+  id("io.micronaut.test-resources") version "4.2.0"
+  id("io.micronaut.aot") version "4.2.0"
 }
 
 version = "0.1"
@@ -14,10 +16,11 @@ dependencies {
   annotationProcessor("io.micronaut:micronaut-http-validation")
   implementation("io.micronaut:micronaut-http-client")
   implementation("io.micronaut:micronaut-jackson-databind")
-  implementation("jakarta.annotation:jakarta.annotation-api")
-  runtimeOnly("ch.qos.logback:logback-classic")
-  implementation("io.micronaut:micronaut-validation")
-  implementation 'net.datafaker:datafaker:1.8.1'
+  implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+  implementation("net.datafaker:datafaker:1.8.1")
+  runtimeOnly("org.slf4j:slf4j-simple")
+  testImplementation("io.micronaut:micronaut-http-client")
+  testImplementation("org.testcontainers:junit-jupiter")
 }
 
 

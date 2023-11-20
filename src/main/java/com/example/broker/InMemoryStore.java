@@ -1,12 +1,12 @@
 package com.example.broker;
 
 import com.example.broker.model.Symbol;
+import jakarta.annotation.PostConstruct;
 import jakarta.inject.Singleton;
 import net.datafaker.Faker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
